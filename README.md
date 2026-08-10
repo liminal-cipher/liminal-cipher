@@ -10,16 +10,17 @@ I'm a grad with a major in **Technological Systems Management** and a minor in *
 Six months. Three projects. An unhealthy number of Azure deployments.
 
 **E-Nudge** 🥇
-An AI-powered *nudge* moderation service that warns writers before they post something harmful, instead of silently deleting it after. Took **1st place** in our cohort evaluation. I served as Dev Lead, owning the full pipeline from ML experiments (ComplementNB + TF-IDF, ~2M-record pseudo-labelling) to FastAPI serving on Azure App Service.
+An AI-powered *nudge* moderation service that warns writers before they post something harmful, instead of silently deleting it after. Took **1st place** in our cohort evaluation. I served as Team Lead and Dev Lead, owning the decision engine, the nudge UX, and FastAPI serving on Azure App Service. The finding I'm proudest of came from the team's controlled experiment: nine algorithms all plateaued around 52%, and mixing in pseudo-labelled data made a fine-tuned KcELECTRA *worse*. The ceiling was label quality, not model capacity.
 
 **이사이상무**
-A RAG-powered moving assistant that generates personalised legal checklists, with a citeable statute or agency link for every item. Built on a 3-index Azure AI Search architecture (law 1,635 / guide 340 / mapping 122 chunks) with GPT-4o. Covers everything from contract signing to post-move admin.
+A RAG-powered moving assistant that generates personalised legal checklists, with a citeable statute or agency link for every item. Built on a 3-index Azure AI Search architecture (law 1,635 / guide 340 / mapping 122 chunks) with GPT-4o. I led the team and designed the index schema, splitting one combined index into three because prose you search and values you quote verbatim behave differently.
 
 **회랑**
-A first-person 3D mind palace app that uses GraphRAG to index uploaded study materials, then powers an in-palace query engine, quiz, and learning chatbot. Validated the GraphRAG pipeline on a Korean history sample across 5 runs.
+A first-person 3D mind palace app that uses GraphRAG to index uploaded study materials, then powers an in-palace query engine, quiz, and learning chatbot. I built the indexing pipeline and the live orchestrator, plus the state layer on Cosmos DB and Blob so a multi-minute index survives a restart. Golden snapshots reproduce byte-identical, and the indexing model was chosen by sweeping four candidates.
 
 ### 🔍 Currently
 
+ * **Building:** *오늘도 안녕*, a stroke early-check service for older adults, for the 8th K-Digital Training Hackathon. The system rings first so nobody has to place a call, then measures face, arm and voice against that person's own baseline rather than a population average. Preliminary results are pending.
  * **Exploring:** NLP, ML, Computer Vision, Responsible AI, and everything MLOps-adjacent.
  * **Shipping on the side:** Utility mobile apps in **React Native** and **Firebase**. If I run into a problem in my day-to-day, I'll probably build an app for it before I think to Google it.
 
