@@ -48,7 +48,7 @@ In the **30 query presentation benchmark**, the checklist pipeline reached **96.
 
 `Python` `FastAPI` `Azure OpenAI` `Azure AI Search` `Document Intelligence` `RAG`
 
-### [회랑 / Mind Palace](https://github.com/liminal-cipher/mind-palace-graphrag)
+### [회랑 (Mind Palace)](https://github.com/liminal-cipher/mind-palace-graphrag)
 
 A 3D spatial learning service built around **GraphRAG**. It turns uploaded study materials into a mind palace viewed in first person and uses the resulting knowledge structure for search and learning interactions.
 
@@ -68,7 +68,7 @@ This project changed how I think about AI systems. Once a model becomes part of 
 
 ## 🧪 Side Projects
 
-### [Tri-Lens Daily News](https://github.com/liminal-cipher/tri-lens-news)
+### [Tri-Lens News](https://github.com/liminal-cipher/tri-lens-news)
 
 A personal AI news pipeline that sends **two news items and one paper every morning**.
 
@@ -123,9 +123,9 @@ I like models. I probably like figuring out how they fit into a system just as m
 
 ## ☕ About Me
 
-I've always been fascinated by **liminal spaces**, that strange, quiet feeling of being somewhere in between.
+If you've made it this far and you're curious about the person behind the projects, I've always been fascinated by **liminal spaces**, that strange, quiet feeling of being somewhere in between.
 
-The username stuck. It also feels appropriate for someone whose background sits between **business and engineering**, and whose favourite technical problems often sit between **models and production systems**.
+That's where the username came from. It also feels oddly fitting for someone whose background sits somewhere between **business and engineering**.
 
 Outside of code, I'm mostly powered by **music and coffee**. My playlists change more often than my tech stack.
 
