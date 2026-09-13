@@ -20,9 +20,9 @@ Six months. Three team projects. An unhealthy number of Azure deployments.
 
 A content moderation service that evaluates text and images when a comment is submitted, then chooses **normal publishing, a nudge, or a block** based on risk.
 
-I served as **Team Lead and Dev Lead**. My main implementation was the **Decision Engine**, which combines text and image risk signals into the final service decision. I also worked jointly on the FastAPI backend and pseudo labelling pipeline, helped design the TF-IDF and classical ML approach, and interpreted the results of the KcELECTRA controlled experiments.
+I served as **Team Lead and Dev Lead**. My main implementation was the **Decision Engine**, which combines text and image risk signals into the final service decision. I also worked jointly on the FastAPI backend and pseudo labeling pipeline, helped design the TF-IDF and classical ML approach, and interpreted the results of the KcELECTRA controlled experiments.
 
-Those experiments became one of the most useful parts of the project. With the same human test set, KcELECTRA trained on 6,316 examples labelled by humans reached **0.739 hate F1**. Adding all 371,459 pseudo labelled examples reduced it to **0.589**, while a 1:1 condition with 6,316 pseudo labelled examples reached **0.701**.
+Those experiments became one of the most useful parts of the project. With the same human test set, KcELECTRA trained on 6,316 examples labeled by humans reached **0.739 hate F1**. Adding all 371,459 pseudo labeled examples reduced it to **0.589**, while a 1:1 condition with 6,316 pseudo labeled examples reached **0.701**.
 
 The results pointed to the quality of our pseudo labels as a major bottleneck rather than showing that simply adding more data would help.
 
@@ -32,7 +32,7 @@ For the actual service, we deployed **TF-IDF + ComplementNB**. KcELECTRA perform
 
 ### [이사이상무](https://github.com/liminal-cipher/isa-isangmu)
 
-An AI moving assistant that provides **personalised guidance** for Korean moving procedures using statutes and public sector information.
+An AI moving assistant that provides **personalized guidance** for Korean moving procedures using statutes and public sector information.
 
 I led the team and designed the system architecture and RAG pipeline. I designed and built **three separate Azure AI Search indexes** for laws, administrative guides, and structured mappings, then implemented the parallel hybrid search layer that queried them.
 
@@ -42,7 +42,7 @@ A principle that came out of this project was simple:
 
 Structured user conditions were converted into search queries with Python rules. Legal deadlines were calculated in Python, and regional contact information came from static mappings. LLMs were reserved for inputs and explanations that actually benefited from natural language reasoning.
 
-The registry document feature followed the same idea. Extraction, judgement, and explanation were separated, and the final risk judgement was handled with Python rules rather than delegated to the LLM.
+The registry document feature followed the same idea. Extraction, judgment, and explanation were separated, and the final risk judgment was handled with Python rules rather than delegated to the LLM.
 
 In the **30 query presentation benchmark**, the checklist pipeline reached **96.9% recall with 0 recorded violations**.
 
@@ -56,7 +56,7 @@ My main focus was the backend system. I built the **GraphRAG backend and live or
 
 **upload → preprocessing → indexing → Palace generation → RAG serving**
 
-GraphRAG indexing can take minutes, so I treated it as a stateful job rather than a normal API request. Job state was persisted in **Azure Cosmos DB**, while generated artefacts were stored in **Azure Blob Storage**. Heavy stages ran in separate subprocesses, which kept expensive indexing work isolated from the main server process. Persisted job state also survived application restarts.
+GraphRAG indexing can take minutes, so I treated it as a stateful job rather than a normal API request. Job state was persisted in **Azure Cosmos DB**, while generated artifacts were stored in **Azure Blob Storage**. Heavy stages ran in separate subprocesses, which kept expensive indexing work isolated from the main server process. Persisted job state also survived application restarts.
 
 I ran GraphRAG indexing experiments and model sweeps, added token and USD cost tracking across the pipeline, worked on RAG quality improvements, and maintained reproducible golden snapshots.
 
