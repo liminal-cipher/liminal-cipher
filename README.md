@@ -20,11 +20,11 @@ Six months. Three team projects. An unhealthy number of Azure deployments.
 
 A content moderation service that evaluates text and images when a comment is submitted, then chooses **normal publishing, a nudge, or a block** based on risk.
 
-I served as **Team Lead and Dev Lead**. My main implementation was the **Decision Engine**, which combines text and image risk signals into the final service decision. I also worked jointly on the FastAPI backend and pseudo labeling pipeline, helped design the TF-IDF and classical ML approach, and interpreted the results of the KcELECTRA controlled experiments.
+I served as **Team Lead and Dev Lead**. My main implementation was the **Decision Engine**, which combines text and image risk signals into the final service decision. I also worked jointly on the FastAPI backend and pseudo-labeling pipeline, helped design the TF-IDF and classical ML approach, and interpreted the results of the KcELECTRA controlled experiments.
 
-Those experiments became one of the most useful parts of the project. With the same human test set, KcELECTRA trained on 6,316 examples labeled by humans reached **0.739 hate F1**. Adding all 371,459 pseudo labeled examples reduced it to **0.589**, while a 1:1 condition with 6,316 pseudo labeled examples reached **0.701**.
+Those experiments became one of the most useful parts of the project. With the same human test set, KcELECTRA trained on 6,316 examples labeled by humans reached **0.739 hate F1**. Adding all 371,459 pseudo-labeled examples reduced it to **0.589**, while a 1:1 condition with 6,316 pseudo-labeled examples reached **0.701**.
 
-The results pointed to the quality of our pseudo labels as a major bottleneck rather than showing that simply adding more data would help.
+The results suggested that pseudo-label quality and noise were likely bottlenecks under these conditions, rather than evidence that simply adding more data would help.
 
 For the actual service, we deployed **TF-IDF + ComplementNB**. KcELECTRA performed better offline, but the service had to run on Azure App Service without a GPU and within a short project schedule. The final choice balanced accuracy, latency, infrastructure, and implementation time.
 
@@ -32,7 +32,7 @@ For the actual service, we deployed **TF-IDF + ComplementNB**. KcELECTRA perform
 
 ### [이사이상무](https://github.com/liminal-cipher/isa-isangmu)
 
-An AI moving assistant that provides **personalized guidance** for Korean moving procedures using statutes and public sector information.
+An AI moving assistant that provides **personalized guidance** for Korean moving procedures using statutes and public agency information.
 
 I led the team and designed the system architecture and RAG pipeline. I designed and built **three separate Azure AI Search indexes** for laws, administrative guides, and structured mappings, then implemented the parallel hybrid search layer that queried them.
 
@@ -44,7 +44,7 @@ Structured user conditions were converted into search queries with Python rules.
 
 The registry document feature followed the same idea. Extraction, judgment, and explanation were separated, and the final risk judgment was handled with Python rules rather than delegated to the LLM.
 
-In the **30 query presentation benchmark**, the checklist pipeline reached **96.9% recall with 0 recorded violations**.
+In the **30-query presentation benchmark**, the checklist pipeline reached **96.9% recall with 0 recorded violations**.
 
 `Python` `FastAPI` `Azure OpenAI` `Azure AI Search` `Document Intelligence` `RAG`
 
@@ -86,7 +86,7 @@ The project is built around a stricter question than simply getting a good score
 
 So far, I have built the historical data pipeline, leakage checks, temporal evaluation, simple baselines, and the first feature experiments.
 
-An initial test found that adding recent five race form did not improve accuracy over starting grid position alone. I have since moved model selection to **expanding window walk forward validation** so future experiments do not rely repeatedly on the same historical holdout.
+An initial test found that adding recent five race form did not improve accuracy over starting grid position alone. I have since moved model selection to **validation over expanding time windows** so future experiments do not rely repeatedly on the same historical holdout.
 
 The next major step is prospective evaluation: committing probabilities before each race and tracking their calibration against actual results across the season.
 
