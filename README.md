@@ -40,11 +40,11 @@ A principle that came out of this project was simple:
 
 > **Use LLMs where flexibility helps. Keep deterministic logic where correctness matters.**
 
-Structured user conditions were converted into search queries with Python rules. Legal deadlines were calculated in Python, and regional contact information came from static mappings. LLMs were reserved for inputs and explanations that actually benefited from natural language reasoning.
+The checklist pipeline initially used LLM query planning, hybrid search, and LLM checklist structuring, followed by deterministic Python post-processing for structured conditions and required items. Legal deadlines were calculated in Python, and regional contact information came from static mappings.
+
+In the **30-query benchmark on April 20, 2026**, that pipeline reached **96.9% mean recall with 0 predefined must-not violations**. Citation coverage and deadline accuracy were separate metrics and were not perfect. A later optimization bypassed LLM calls and search when users supplied no free text, while retaining the LLM path for free-text requests.
 
 The registry document feature followed the same idea. Extraction, judgment, and explanation were separated, and the final risk judgment was handled with Python rules rather than delegated to the LLM.
-
-In the **30-query presentation benchmark**, the checklist pipeline reached **96.9% recall with 0 recorded violations**.
 
 `Python` `FastAPI` `Azure OpenAI` `Azure AI Search` `Document Intelligence` `RAG`
 
@@ -76,6 +76,8 @@ Each item is explained through three lenses: **Everyone**, **Developers**, and *
 
 The pipeline runs on **GitHub Actions**, uses Gemini for selection and interpretation, checks output constraints with deterministic rules, and automatically regenerates an interpretation once if it violates them. Delivered digests are committed back to the repository as Markdown.
 
+A weekly **Concept Radar** now looks for reusable technical terms in a 14-day Hacker News sample, the current GeekNews feed, and delivered digests. It nominates candidates, fetches their source articles, then uses a second pass to discard unsupported terms and explain those that remain. Previously delivered terms are suppressed for 90 days, and the results describe the sampled sources rather than claiming industry-wide trends.
+
 `Python` `Gemini API` `GitHub Actions` `Prompt Engineering`
 
 ### [We Are Checking](https://github.com/liminal-cipher/we-are-checking) *(In Progress)*
@@ -87,6 +89,8 @@ The project is built around a stricter question than simply getting a good score
 So far, I have built the historical data pipeline, leakage checks, temporal evaluation, simple baselines, and the first feature experiments.
 
 An initial test found that adding recent five race form did not improve accuracy over starting grid position alone. I have since moved model selection to **validation over expanding time windows** so future experiments do not rely repeatedly on the same historical holdout.
+
+In those walk-forward comparisons, adding recent form improved accuracy in the 2022 and 2023 validation seasons but reduced it in 2024. That mixed result does not support a final feature choice or a general claim that recent form is uninformative.
 
 The next major step is prospective evaluation: committing probabilities before each race and tracking their calibration against actual results across the season.
 
