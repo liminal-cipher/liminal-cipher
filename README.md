@@ -4,11 +4,11 @@
 
 # Hey, I'm liminal-cipher. 👋
 
-I'm interested in **AI/ML engineering**, both in machine learning itself and in the systems that make models useful in practice.
+I'm interested in **AI/ML engineering**, from model experiments to the systems that make them useful.
+
+I like building things with models. I also like finding out when a simpler approach works better.
 
 I studied **Technological Systems Management** with a minor in **Computer Science**, then completed the **Microsoft AI School, 9th cohort, from December 2025 to June 2026**.
-
-That mix shaped how I approach technical problems. I enjoy model and data experiments, but I also care about where AI should make a decision, what should stay deterministic, and how a pipeline behaves once it is deployed.
 
 I'm currently looking for opportunities in **AI/ML Engineering**, especially work involving machine learning, RAG, backend systems, and LLMOps.
 
@@ -17,6 +17,8 @@ I'm currently looking for opportunities in **AI/ML Engineering**, especially wor
 Six months. Three team projects. An unhealthy number of Azure deployments.
 
 ### [E-Nudge](https://github.com/liminal-cipher/e-nudge) 🥇
+
+*When more data wasn't the answer.*
 
 A content moderation service that evaluates text and images when a comment is submitted, then chooses **normal publishing, a nudge, or a block** based on risk.
 
@@ -31,6 +33,8 @@ For the actual service, we deployed **TF-IDF + ComplementNB**. KcELECTRA perform
 `Python` `FastAPI` `scikit-learn` `TF-IDF` `Azure`
 
 ### [이사이상무](https://github.com/liminal-cipher/isa-isangmu)
+
+*Some of the best AI decisions were Python rules.*
 
 An AI moving assistant that provides **personalized guidance** for Korean moving procedures using statutes and public agency information.
 
@@ -49,6 +53,8 @@ The registry document feature followed the same idea. Extraction, judgment, and 
 `Python` `FastAPI` `Azure OpenAI` `Azure AI Search` `Document Intelligence` `RAG`
 
 ### [회랑 (Mind Palace)](https://github.com/liminal-cipher/mind-palace-graphrag)
+
+*The model finished. The engineering didn't.*
 
 A 3D spatial learning service built around **GraphRAG**. It turns uploaded study materials into a mind palace viewed in first person and uses the resulting knowledge structure for search and learning interactions.
 
@@ -70,6 +76,8 @@ This project changed how I think about AI systems. Once a model becomes part of 
 
 ### [Tri-Lens News](https://github.com/liminal-cipher/tri-lens-news)
 
+*A newsletter for an audience of one: me.*
+
 A personal AI news pipeline that sends **two news items and one paper every morning**.
 
 Each item is explained through three lenses: **Everyone**, **Developers**, and **Researchers**. They are not separate audiences. The idea is for one reader to move through them in order, starting with plain context, then implementation details, then open research questions.
@@ -82,9 +90,11 @@ A weekly **Concept Radar** now looks for reusable technical terms in a 14-day Ha
 
 ### [We Are Checking](https://github.com/liminal-cipher/we-are-checking) *(In Progress)*
 
+*Predictions before lights out. No hindsight upgrades.*
+
 A personal machine learning project for predicting whether each Formula 1 driver will finish in the top 10.
 
-The project is built around a stricter question than simply getting a good score: **does a probability recorded before the race remain trustworthy after the race is over?**
+The goal is to commit probabilities before each race, then track how well they hold up once the checkered flag falls.
 
 So far, I have built the historical data pipeline, leakage checks, temporal evaluation, simple baselines, and the first feature experiments.
 
@@ -127,9 +137,7 @@ I like models. I probably like figuring out how they fit into a system just as m
 
 ## ☕ About Me
 
-If you've made it this far and you're curious about the person behind the projects, I've always been fascinated by **liminal spaces**, that strange, quiet feeling of being somewhere in between.
-
-That's where the username came from. It also feels oddly fitting for someone whose background sits somewhere between **business and engineering**.
+I've always liked **liminal spaces**, that strange, quiet feeling of being somewhere in between. That's where the username came from.
 
 Outside of code, I'm mostly powered by **music and coffee**. My playlists change more often than my tech stack.
 
