@@ -22,9 +22,9 @@ Six months. Three team projects. An unhealthy number of Azure deployments.
 
 A content moderation service that evaluates text and images when a comment is submitted, then chooses **normal publishing, a nudge, or a block** based on risk.
 
-I served as **Team Lead and Dev Lead**. My main implementation was the **Decision Engine**, which combines text and image risk signals into the final service decision. I also worked jointly on the FastAPI backend and pseudo-labeling pipeline, helped design the TF-IDF and classical ML approach, and interpreted the results of the KcELECTRA controlled experiments.
+I served as **Team Lead and Dev Lead**. My main implementation was the **Decision Engine**, which combines text and image risk signals into the final service decision. I also worked jointly on the FastAPI backend and pseudo-labelling pipeline, helped design the TF-IDF and classical ML approach, and interpreted the results of the KcELECTRA controlled experiments.
 
-Those experiments became one of the most useful parts of the project. With the same human test set, KcELECTRA trained on 6,316 examples labeled by humans reached **0.739 hate F1**. Adding all 371,459 pseudo-labeled examples reduced it to **0.589**, while a 1:1 condition with 6,316 pseudo-labeled examples reached **0.701**.
+Those experiments became one of the most useful parts of the project. With the same human test set, KcELECTRA trained on 6,316 examples labelled by humans reached **0.739 hate F1**. Adding all 371,459 pseudo-labelled examples reduced it to **0.589**, while a 1:1 condition with 6,316 pseudo-labelled examples reached **0.701**.
 
 The results suggested that pseudo-label quality and noise were likely bottlenecks under these conditions, rather than evidence that simply adding more data would help.
 
@@ -36,7 +36,7 @@ For the actual service, we deployed **TF-IDF + ComplementNB**. KcELECTRA perform
 
 *Some of the best AI decisions were Python rules.*
 
-An AI moving assistant that provides **personalized guidance** for Korean moving procedures using statutes and public agency information.
+An AI moving assistant that provides **personalised guidance** for Korean moving procedures using statutes and public agency information.
 
 I led the team and designed the system architecture and RAG pipeline. I designed and built **three separate Azure AI Search indexes** for laws, administrative guides, and structured mappings, then implemented the parallel hybrid search layer that queried them.
 
@@ -46,9 +46,9 @@ A principle that came out of this project was simple:
 
 The checklist pipeline initially used LLM query planning, hybrid search, and LLM checklist structuring, followed by deterministic Python post-processing for structured conditions and required items. Legal deadlines were calculated in Python, and regional contact information came from static mappings.
 
-In the **30-query benchmark on April 20, 2026**, that pipeline reached **96.9% mean recall with 0 predefined must-not violations**. Citation coverage and deadline accuracy were separate metrics and were not perfect. A later optimization bypassed LLM calls and search when users supplied no free text, while retaining the LLM path for free-text requests.
+In the **30-query benchmark on 20 April 2026**, that pipeline reached **96.9% mean recall with 0 predefined must-not violations**. Citation coverage and deadline accuracy were separate metrics and were not perfect. A later optimisation bypassed LLM calls and search when users supplied no free text, while retaining the LLM path for free-text requests.
 
-The registry document feature followed the same idea. Extraction, judgment, and explanation were separated, and the final risk judgment was handled with Python rules rather than delegated to the LLM.
+The registry document feature followed the same idea. Extraction, judgement, and explanation were separated, and the final risk judgement was handled with Python rules rather than delegated to the LLM.
 
 `Python` `FastAPI` `Azure OpenAI` `Azure AI Search` `Document Intelligence` `RAG`
 
@@ -62,7 +62,7 @@ My main focus was the backend system. I built the **GraphRAG backend and live or
 
 **upload → preprocessing → indexing → Palace generation → RAG serving**
 
-GraphRAG indexing can take minutes, so I treated it as a stateful job rather than a normal API request. Job state was persisted in **Azure Cosmos DB**, while generated artifacts were stored in **Azure Blob Storage**. Heavy stages ran in separate subprocesses, which kept expensive indexing work isolated from the main server process. Persisted job state also survived application restarts.
+GraphRAG indexing can take minutes, so I treated it as a stateful job rather than a normal API request. Job state was persisted in **Azure Cosmos DB**, while generated artefacts were stored in **Azure Blob Storage**. Heavy stages ran in separate subprocesses, which kept expensive indexing work isolated from the main server process. Persisted job state also survived application restarts.
 
 I ran GraphRAG indexing experiments and model sweeps, added token and USD cost tracking across the pipeline, worked on RAG quality improvements, and maintained reproducible golden snapshots.
 
@@ -94,7 +94,7 @@ A weekly **Concept Radar** now looks for reusable technical terms in a 14-day Ha
 
 A personal machine learning project for predicting whether each Formula 1 driver will finish in the top 10.
 
-The goal is to commit probabilities before each race, then track how well they hold up once the checkered flag falls.
+The goal is to commit probabilities before each race, then track how well they hold up once the chequered flag falls.
 
 So far, I have built the historical data pipeline, leakage checks, temporal evaluation, simple baselines, and the first feature experiments.
 
